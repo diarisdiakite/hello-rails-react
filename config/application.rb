@@ -1,12 +1,17 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+# This module contains the configuration for the HelloRailsReact application.
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# This module contains the configuration for the HelloRailsReact application.
 module HelloRailsReact
+  # Configuration for the HelloRailsReact application.
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0

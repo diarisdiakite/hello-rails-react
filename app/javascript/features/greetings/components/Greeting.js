@@ -1,7 +1,16 @@
-// app/javascript/features/greetings/components/Greeting.js
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRandomGreeting } from './redux/actions';
 
-const Greeting = ({ greeting }) => {
+const Greeting = () => {
+  const dispatch = useDispatch();
+  const { greeting } = useSelector((state) => state.greeting);
+
+  useEffect(() => {
+    // Fetch a random greeting when the component mounts
+    dispatch(fetchRandomGreeting());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>{greeting}</h1>
