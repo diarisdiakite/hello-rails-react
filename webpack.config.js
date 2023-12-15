@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -12,7 +11,9 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+        },
       },
     ],
   },
@@ -26,5 +27,16 @@ module.exports = {
       chunks: 'all',
       name: 'vendor',
     },
+  },
+  target: 'web',
+  node: {
+    __dirname: false,
+    __filename: false,
+    global: true,
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty',
   },
 };
